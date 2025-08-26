@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="//unpkg.com/alpinejs" defer></script>
   <style>
     body { 
       font-family: 'Inter', sans-serif; 
@@ -21,11 +22,12 @@
 <body class="bg-black text-gray-200">
 
   <!-- Header -->
-  <header class="p-6 sticky top-0 bg-black z-50 shadow-md">
+  <header class="p-6 sticky top-0 bg-black z-50 shadow-md" x-data="{ open: false }">
     <div class="container mx-auto flex justify-between items-center">
       <div class="text-3xl font-bold text-red-500">Evolve8</div>
-      <!-- Navigation Links -->
-      <nav class="space-x-6">
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex space-x-6">
         <a href="#about" class="text-gray-300 hover:text-red-500">About</a>
         <a href="#team" class="text-gray-300 hover:text-red-500">Team</a>
         <a href="#schedule" class="text-gray-300 hover:text-red-500">Schedule</a>
@@ -33,6 +35,33 @@
         <a href="#wayfinder" class="text-gray-300 hover:text-red-500">Wayfinder</a>
         <a href="#coming-soon" class="text-gray-300 hover:text-red-500">Projects</a>
         <a href="#contact" class="text-gray-300 hover:text-red-500">Contact</a>
+      </nav>
+
+      <!-- Mobile Hamburger -->
+      <div class="md:hidden">
+        <button @click="open = !open" class="text-gray-300 hover:text-red-500 focus:outline-none">
+          <!-- Hamburger Icon -->
+          <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <!-- Close Icon -->
+          <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div x-show="open" class="md:hidden bg-black shadow-md">
+      <nav class="px-4 pt-4 pb-6 space-y-3">
+        <a href="#about" class="block text-gray-300 hover:text-red-500">About</a>
+        <a href="#team" class="block text-gray-300 hover:text-red-500">Team</a>
+        <a href="#schedule" class="block text-gray-300 hover:text-red-500">Schedule</a>
+        <a href="#fiverr" class="block text-gray-300 hover:text-red-500">Fiverr</a>
+        <a href="#wayfinder" class="block text-gray-300 hover:text-red-500">Wayfinder</a>
+        <a href="#coming-soon" class="block text-gray-300 hover:text-red-500">Projects</a>
+        <a href="#contact" class="block text-gray-300 hover:text-red-500">Contact</a>
       </nav>
     </div>
   </header>
@@ -64,7 +93,6 @@
       <p class="text-gray-400 text-lg leading-relaxed mt-6">
         Unlike traditional consumer-facing startups, our core market is the <strong>investment community</strong> — venture capital, private equity, and strategic partners 
         seeking transformative opportunities in AI, blockchain, fintech, and sustainability.  
-        We incubate ventures, manage IP, provide investor relations, and oversee project milestones with precision and scalability.
       </p>
       <p class="text-gray-400 text-lg leading-relaxed mt-6">
         By combining agile corporate structures with a synergistic portfolio, we create resilient ventures such as the <strong>Wayfinder Coin</strong> and 
@@ -78,14 +106,14 @@
     <div class="container mx-auto max-w-5xl text-center">
       <h2 class="text-3xl md:text-4xl font-bold text-white mb-12">Our Leadership</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
-        <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
+        <a href="https://www.linkedin.com/in/reyaporche" target="_blank" class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 hover:border-red-500 transition block">
           <h3 class="text-xl font-bold text-red-500">Reya Porche – CEO & Founder</h3>
           <p class="text-gray-400 mt-3">Reya is the visionary behind Evolve8 Enterprises, leading strategic direction, investor relations, and global expansion. She ensures the company remains aligned with its dual mission of innovation and social impact.</p>
-        </div>
-        <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
+        </a>
+        <a href="https://www.linkedin.com/in/tawanna-t-irving" target="_blank" class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700 hover:border-red-500 transition block">
           <h3 class="text-xl font-bold text-red-500">Tawanna T. Irving – Revenue Generator</h3>
           <p class="text-gray-400 mt-3">Tawanna drives growth strategies, streamlining revenue development and building sustainable pathways for Evolve8’s portfolio ventures.</p>
-        </div>
+        </a>
         <div class="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700">
           <h3 class="text-xl font-bold text-red-500">Chief Technology Officer (CTO)</h3>
           <p class="text-gray-400 mt-3">The CTO oversees all technology ventures, including AI and blockchain projects, ensuring technical milestones are achieved and innovation remains scalable.</p>
