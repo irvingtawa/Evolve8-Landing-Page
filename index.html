@@ -14,13 +14,16 @@
       font-family: 'Inter', sans-serif; 
       scroll-behavior: smooth;
     }
+    html {
+      scroll-padding-top: 70px; /* adjust to match navbar height */
+    }
     .hero-bg {
       background: linear-gradient(135deg, #000000 0%, #111827 100%);
     }
   </style>
 </head>
 <body class="bg-black text-gray-200">
-
+  
   <!-- Header -->
   <header class="p-6 sticky top-0 bg-black z-50 shadow-md" x-data="{ open: false }">
     <div class="container mx-auto flex justify-between items-center">
